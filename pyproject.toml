@@ -1,0 +1,42 @@
+[project]
+name = "kt1"
+version = "0.1.0"
+description = "Альтернативная КТ по основам"
+readme = "README.md"
+authors = [
+    { name = "Lex Trofimov", email = "daslef93@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pytest>=9.0.2",
+    "python-dateutil>=2.9.0.post0",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cache>=1.0",
+    "pytest-pylint>=0.21.0",
+    "pytest-subtests>=0.15.0",
+    "ruff>=0.15.2",
+    "ty>=0.0.17",
+]
+
+[tool.pytest.ini_options]
+addopts = "-rsxX -l --tb short --strict"
+markers = "task: A concept exercise task."
+
+[tool.ruff]
+line-length = 90
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.ty.environment]
+root = ["./src"]
